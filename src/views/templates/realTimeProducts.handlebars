@@ -1,0 +1,40 @@
+<h1>Real-Time Productos</h1>
+
+{{#if mostrarProductos}}
+    {{#each productos}}
+        <div>
+            <p>Titulo: {{this.title}}</p>
+            <p>Descripcion: {{this.description}}</p>
+            <p>Precio: {{this.price}}</p>
+            <p>Stock: {{this.stock}}</p>
+            <img src="{{this.img}}" alt="Imagen de {{this.title}}">
+        </div>
+    {{/each}}
+{{else}}
+    <p>No se pueden mostrar los productos</p>
+{{/if}}
+
+
+
+<!-- El formulario para agregar un nuevo producto -->
+<form id="nuevoProductoForm">
+    <!-- Campos del formulario... -->
+    <button type="submit">Agregar Producto</button>
+</form>
+
+{{#if mostrarProductos}}
+    {{#each productos}}
+        <!-- Contenido del producto... -->
+    {{/each}}
+{{else}}
+    <p>No se pueden mostrar los productos</p>
+{{/if}}
+
+<script>
+    // Código JavaScript para manejar el envío del formulario por sockets
+    const nuevoProductoForm = document.getElementById('nuevoProductoForm');
+    nuevoProductoForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Lógica para obtener los datos del formulario y enviarlos por sockets
+    });
+</script>

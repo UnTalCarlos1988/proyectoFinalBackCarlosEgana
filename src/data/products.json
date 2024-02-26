@@ -1,0 +1,33 @@
+[
+    {
+        "title": "proteina",
+        "description": "proteina de suero de leche",
+        "price": 50000,
+        "stock": 25,
+        "code": "L123",
+        "thumbnail": [],
+        "id": "1747ea8e4b47e46934ba",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_727701-MLU72636537067_112023-O.webp"
+    },
+    {
+        "title": "creatina",
+        "description": "monohidrato de creatina 300 gr",
+        "price": 30000,
+        "stock": 22,
+        "code": "Y243",
+        "thumbnail": [],
+        "id": "e8d4db4bdedf152c83c2",
+        "img":"https://http2.mlstatic.com/D_NQ_NP_771813-MLU72761449728_112023-O.webp"
+    },
+    {
+        "title": "shaker",
+        "description": "shaker de plastico resistente 1 lt",
+        "price": 5000,
+        "stock": 14,
+        "code": "A433",
+        "thumbnail": [],
+        "id": "ed278bf2d3ebbc8b5af6",
+        "img":"https://http2.mlstatic.com/D_NQ_NP_968637-MLC71045834400_082023-O.webp"
+
+    }
+]
