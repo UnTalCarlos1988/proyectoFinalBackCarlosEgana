@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser'
 import messageModel from './models/messages.js'
 import indexRouter from './routes/indexRouter.js'
 import initializePassport from './config/passport/passport.js'
+import varenv from './dotenv.js'
 import { Server } from 'socket.io'
 import { engine } from 'express-handlebars'
 import { __dirname } from './path.js'
@@ -14,7 +15,6 @@ import { __dirname } from './path.js'
 //Configuraciones o declaraciones
 const app = express()
 const PORT = 8000
-
 
 //Server
 const server = app.listen(PORT, () => {
@@ -24,7 +24,7 @@ const server = app.listen(PORT, () => {
 const io = new Server(server)
 
 //Connection DB
-mongoose.connect("mongodb+srv://franciscopugh01:@cluster0.uggkmbj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect(varenv.mongo_url)
     .then(() => console.log("DB is connected"))
     .catch(e => console.log(e))
 
@@ -32,15 +32,15 @@ mongoose.connect("mongodb+srv://franciscopugh01:@cluster0.uggkmbj.mongodb.net/?r
 app.use(express.json())
 
 app.use(session({
-    secret: "coderSecret",
+    secret: varenv.session_secret,
     resave: true,
     store: MongoStore.create({
-        mongoUrl: "mongodb+srv://franciscopugh01:@cluster0.uggkmbj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        mongoUrl: varenv.mongo_url,
         ttl: 60 * 60
     }),
     saveUninitialized: true
 }))
-app.use(cookieParser("claveSecreta"))
+app.use(cookieParser(varenv.cookies_secret))
 app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
 app.set('views', __dirname + '/views')
